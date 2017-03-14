@@ -31,7 +31,7 @@ module.exports = function (grunt) {
     watch: {
       js: {
         files: ['<%= app.app %>/js/{,*/}*.js'],
-        tasks: ['newer:jshint:all'],
+        tasks: ['browserify'],
         options: {
           livereload: 35730
         }
@@ -50,7 +50,7 @@ module.exports = function (grunt) {
         files: [
           '<%= app.app %>/{,*/}*.html',
           '.tmp/styles/{,*/}*.css',
-          '<%= app.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg,json}',
+          '<%= app.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg,json}'
         ]
       }
     },

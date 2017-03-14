@@ -8,14 +8,14 @@ A Feedhenry template that is using Browserify, Cordova and React. It can be used
 
 ## Local clone
 
-* npm install. A grunt task is automatically run to generate main.js
+* npm install. A grunt task is automatically run to regenerate main.js
 * Edit fhconfig.json and put in all the relevant configuration
 * Build an run locally with `cordova serve`
-* Open a browser at `http://localhost:8000/browser/www`
+* Open a browser at `http://localhost:8001/browser/www`
 
 ## Running on iOS or Android
 
-* npm install
+* npm install. A grunt task is automatically run to regenerate main.js
 * cordova run [target] (this will launch an emulator for android or iOs)
 
 ## Development using Grunt

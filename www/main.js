@@ -33978,10 +33978,20 @@ arguments[4][153][0].apply(exports,arguments)
 module.exports = require('./lib/React');
 
 },{"./lib/React":156}],184:[function(require,module,exports){
+const React = require('react');
+
+// The simplest kind of a react component: a stateless function component
+module.exports = ({text}) =>  {
+  return (
+    React.createElement("p", {id: "description"}, text)
+  )
+};
+},{"react":183}],185:[function(require,module,exports){
 "use strict";
 
 const React = require('react')
   , ReactDOM = require('react-dom')
+  , Welcome = require('./components/welcome')
   , $fh = require('fh-js-sdk');
 
 const WELCOME_TEXT = `
@@ -34019,7 +34029,7 @@ class App extends React.Component {
     $fh.cloud({
         path: 'hello',
         data: {
-          hello: this.state.message
+          hello: self.state.message
         },
       },
       function (res) {
@@ -34039,8 +34049,7 @@ class App extends React.Component {
   render() {
     return (
       React.createElement("div", null, 
-        React.createElement("p", {id: "description"}, WELCOME_TEXT), 
-        React.createElement("br", null), 
+        React.createElement(Welcome, {text: WELCOME_TEXT}), 
         React.createElement("input", {
           className: "input-text", 
           type: "text", 
@@ -34048,9 +34057,7 @@ class App extends React.Component {
           onChange: this.handleChange, 
           placeholder: "Input your Name"}
         ), 
-        React.createElement("br", null), 
         React.createElement("button", {className: "say-hello-button", onClick: this.handleSubmit}, "Submit"), 
-        React.createElement("br", null), 
         React.createElement("p", null, this.state.cloudResponse)
       )
     )
@@ -34058,4 +34065,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(React.createElement(App, null), document.getElementById("app"));
-},{"fh-js-sdk":1,"react":183,"react-dom":3}]},{},[184]);
+},{"./components/welcome":184,"fh-js-sdk":1,"react":183,"react-dom":3}]},{},[185]);

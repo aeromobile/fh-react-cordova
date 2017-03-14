@@ -2,6 +2,7 @@
 
 const React = require('react')
   , ReactDOM = require('react-dom')
+  , Welcome = require('./components/welcome')
   , $fh = require('fh-js-sdk');
 
 const WELCOME_TEXT = `
@@ -59,8 +60,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <p id="description">{WELCOME_TEXT}</p>
-        <br></br>
+        <Welcome text={WELCOME_TEXT} />
         <input
           className="input-text"
           type="text"
@@ -68,9 +68,7 @@ class App extends React.Component {
           onChange={this.handleChange}
           placeholder="Input your Name"
         />
-        <br></br>
         <button className="say-hello-button" onClick={this.handleSubmit}>Submit</button>
-        <br></br>
         <p>{this.state.cloudResponse}</p>
       </div>
     )
