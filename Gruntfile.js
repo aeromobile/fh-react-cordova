@@ -50,7 +50,7 @@ module.exports = function (grunt) {
         files: [
           '<%= app.app %>/{,*/}*.html',
           '.tmp/styles/{,*/}*.css',
-          '<%= app.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+          '<%= app.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg,json}',
         ]
       }
     },

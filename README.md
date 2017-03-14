@@ -13,7 +13,12 @@ A Feedhenry template that is using Browserify, Cordova and React. It can be used
 * Build an run locally with `cordova serve`
 * Open a browser at `http://localhost:8000/browser/www`
 
-# Development using Grunt
+## Running on iOS or Android
+
+* npm install
+* cordova run [target] (this will launch an emulator for android or iOs)
+
+## Development using Grunt
 
 * npm install
 * grunt serve
