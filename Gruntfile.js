@@ -23,7 +23,7 @@ module.exports = function (grunt) {
       },
       app: {
         src: './www/js/main.js',
-        dest: './www/compiled/main.js'
+        dest: './www/main.js'
       }
     },
 
