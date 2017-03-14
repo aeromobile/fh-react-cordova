@@ -1,0 +1,29 @@
+{
+  "name": "react-template",
+  "version": "0.0.1",
+  "description": "FeedHenry template app using react",
+  "main": "index.js",
+  "scripts": {
+    "install": "./node_modules/grunt-cli/bin/grunt browserify"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {
+    "browserify-shim": "^3.8.13",
+    "fh-js-sdk": "^2.18.4",
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^4.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-react": "^0.12.3",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-connect": "~0.7.1",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-newer": "~0.5.4",
+    "grunt-rev": "~0.1.0",
+    "load-grunt-tasks": "~0.2.1",
+    "time-grunt": "~0.2.10",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  }
+}
