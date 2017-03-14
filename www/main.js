@@ -34014,6 +34014,8 @@ class App extends React.Component {
 
   // This method is called when the `Submit` button is pressed
   handleSubmit() {
+    var self = this;
+
     $fh.cloud({
         path: 'hello',
         data: {
@@ -34022,7 +34024,7 @@ class App extends React.Component {
       },
       function (res) {
         // Update the component state. This will trigger also update the view
-        this.setState({
+        self.setState({
           message: "",
           cloudResponse: res.msg
         });
@@ -34039,9 +34041,15 @@ class App extends React.Component {
       React.createElement("div", null, 
         React.createElement("p", {id: "description"}, WELCOME_TEXT), 
         React.createElement("br", null), 
-        React.createElement("input", {type: "text", value: this.state.message, onChange: this.handleChange}), 
+        React.createElement("input", {
+          className: "input-text", 
+          type: "text", 
+          value: this.state.message, 
+          onChange: this.handleChange, 
+          placeholder: "Input your Name"}
+        ), 
         React.createElement("br", null), 
-        React.createElement("button", {onClick: this.handleSubmit}, "Submit"), 
+        React.createElement("button", {className: "say-hello-button", onClick: this.handleSubmit}, "Submit"), 
         React.createElement("br", null), 
         React.createElement("p", null, this.state.cloudResponse)
       )
