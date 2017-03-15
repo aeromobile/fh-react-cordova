@@ -4,7 +4,7 @@
 
 A Feedhenry template that is using Browserify, Cordova and React. It can be used with the HelloWorld cloud app](https://github.com/feedhenry-templates/helloworld-cloud) or any cloud app. Refer to [fhconfig.json](www/fhconfig.json) for configuration.
 
-You can use full ES6 in your JavaScript code. This template is configured to work with the node modules system and lets you use `require` in your components. If you want to use native ES6 imports you need have to install the `babelify` package.
+This template is configured to work with the node modules system and lets you use `require` in your components. If you want to use native ES6 imports you need have to install the `babelify` package.
 
 # How to run it
 
