@@ -33978,91 +33978,127 @@ arguments[4][153][0].apply(exports,arguments)
 module.exports = require('./lib/React');
 
 },{"./lib/React":156}],184:[function(require,module,exports){
-const React = require('react');
+"use strict";
+
+var React = require('react');
 
 // The simplest kind of a react component: a stateless function component
-module.exports = ({text}) =>  {
-  return (
-    React.createElement("p", {id: "description"}, text)
-  )
+module.exports = function (_ref) {
+  var text = _ref.text;
+
+  return React.createElement(
+    "p",
+    { id: "description" },
+    text
+  );
 };
+
 },{"react":183}],185:[function(require,module,exports){
 "use strict";
 
-const React = require('react')
-  , ReactDOM = require('react-dom')
-  , Welcome = require('./components/welcome')
-  , $fh = require('fh-js-sdk');
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-const WELCOME_TEXT = `
-  This is a basic React App that can take in your name, 
-  send it to a cloud app and display the response.
-`;
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var React = require('react'),
+    ReactDOM = require('react-dom'),
+    Welcome = require('./components/welcome'),
+    $fh = require('fh-js-sdk');
+
+var WELCOME_TEXT = '\n  This is a basic React App that can take in your name, \n  send it to a cloud app and display the response.\n';
+
+var App = function (_React$Component) {
+  _inherits(App, _React$Component);
+
+  function App(props) {
+    _classCallCheck(this, App);
 
     // Set initial state
-    this.state = {
+    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+    _this.state = {
       message: "",
       cloudResponse: ""
     };
 
     // Those bindings are required to make `this` work in the callbacks
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    _this.handleChange = _this.handleChange.bind(_this);
+    _this.handleSubmit = _this.handleSubmit.bind(_this);
+    return _this;
   }
 
   // This method is called when the input field fires the `onChange` event
-  handleChange(event) {
-    this.setState({
-      message: event.target.value,
-      cloudResponse: this.state.cloudResponse
-    });
-  }
 
-  // This method is called when the `Submit` button is pressed
-  handleSubmit() {
-    var self = this;
 
-    $fh.cloud({
+  _createClass(App, [{
+    key: 'handleChange',
+    value: function handleChange(event) {
+      this.setState({
+        message: event.target.value,
+        cloudResponse: this.state.cloudResponse
+      });
+    }
+
+    // This method is called when the `Submit` button is pressed
+
+  }, {
+    key: 'handleSubmit',
+    value: function handleSubmit() {
+      var self = this;
+
+      $fh.cloud({
         path: 'hello',
         data: {
           hello: self.state.message
-        },
-      },
-      function (res) {
+        }
+      }, function (res) {
         // Update the component state. This will trigger also update the view
         self.setState({
           message: "",
           cloudResponse: res.msg
         });
-      },
-      function (errorCode) {
-        alert(`An error with code ${errorCode} occurred`);
-      }
-    );
-  }
+      }, function (errorCode) {
+        alert('An error with code ' + errorCode + ' occurred');
+      });
+    }
 
-  // The `render` method is the
-  render() {
-    return (
-      React.createElement("div", null, 
-        React.createElement(Welcome, {text: WELCOME_TEXT}), 
-        React.createElement("input", {
-          className: "input-text", 
-          type: "text", 
-          value: this.state.message, 
-          onChange: this.handleChange, 
-          placeholder: "Input your Name"}
-        ), 
-        React.createElement("button", {className: "say-hello-button", onClick: this.handleSubmit}, "Submit"), 
-        React.createElement("p", null, this.state.cloudResponse)
-      )
-    )
-  }
-}
+    // The `render` method is the
+
+  }, {
+    key: 'render',
+    value: function render() {
+      return React.createElement(
+        'div',
+        null,
+        React.createElement(Welcome, { text: WELCOME_TEXT }),
+        React.createElement('input', {
+          className: 'input-text',
+          type: 'text',
+          value: this.state.message,
+          onChange: this.handleChange,
+          placeholder: 'Input your Name'
+        }),
+        React.createElement(
+          'button',
+          { className: 'say-hello-button', onClick: this.handleSubmit },
+          'Submit'
+        ),
+        React.createElement(
+          'p',
+          null,
+          this.state.cloudResponse
+        )
+      );
+    }
+  }]);
+
+  return App;
+}(React.Component);
 
 ReactDOM.render(React.createElement(App, null), document.getElementById("app"));
+
 },{"./components/welcome":184,"fh-js-sdk":1,"react":183,"react-dom":3}]},{},[185]);

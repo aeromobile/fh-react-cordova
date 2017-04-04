@@ -18,11 +18,11 @@ module.exports = function (grunt) {
     },
 
     browserify: {
-      options: {
-        transform: [require('grunt-react').browserify]
-      },
-      app: {
-        src: './www/js/main.js',
+      dist: {
+        options: {
+          transform: [['babelify', {presets: ['es2015', 'react']}]]
+        },
+        src: ['./www/js/main.js'],
         dest: './www/main.js'
       }
     },
@@ -102,5 +102,4 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('default', ['serve']);
-  grunt.loadNpmTasks('grunt-browserify');
 };
